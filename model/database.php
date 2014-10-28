@@ -1,5 +1,5 @@
 <?php
-
+//varibles
 	$host = "localhost";
 	$username = "root";
 	$password = "root";
