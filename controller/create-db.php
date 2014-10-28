@@ -9,9 +9,18 @@
 
 	}
 
-	else{
+//selects this database and returns it true of not true
+	$exists = $connection->select_db($database);
 
-		echo "Success: " . $connection->host_info;
+//query that gets applide to our local server
+	if(!$exists) {
+		$query = $connection->("CREATE DATABASE $database");
+//output a message
+		if($query)  {
+			echo "Successfully created a database: " . $database:
+		}
 	}
 
+
+//close conection so it ends
 	$connection->close();

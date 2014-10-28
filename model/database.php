@@ -1,6 +1,6 @@
 <?php
-//varibles
+//information for blog (varibles)
 	$host = "localhost";
 	$username = "root";
 	$password = "root";
-	$database = "blog db";
+	$database = "blog_db";
