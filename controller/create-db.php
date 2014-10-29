@@ -14,13 +14,17 @@
 
 //query that gets applide to our local server
 	if(!$exists) {
-		$query = $connection->("CREATE DATABASE $database");
-//output a message
+		$query = $connection->query("CREATE DATABASE $database");
+//output a message if database is created
 		if($query)  {
-			echo "Successfully created a database: " . $database:
+			echo "Successfully created a database: " . $database;
 		}
+	}
+//exicute if database already exist
+	else {
+		echo "Database already exists";
 	}
 
 
-//close conection so it ends
+
 	$connection->close();
