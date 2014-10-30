@@ -24,7 +24,15 @@
 	else {
 		echo "Database already exists";
 	}
-
-
+//Creates a table for blog post
+$query - $connection->query("CREATE TABLE posts ("
+//increment the id of the post
+ . "id int(11) NUT NULL AUTO_INCREMENT,"
+//title of the psot
+ . "title varchar(255) NOT NULL,"
+// wont let id and title be empty
+ . "post: text NOT NULL,"
+//will be used to hook the posts together later
+ . "PRIMARY KEY (id))");
 
 	$connection->close();
