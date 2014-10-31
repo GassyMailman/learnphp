@@ -5,7 +5,7 @@
 	$connection = new mysqli($host, $username, $password);
 
 	if($connection->connect_error){
-		die("Error: "  . $connection->connect_error);
+		die("<p>Error: "  . $connection->connect_error . "</P>");
 
 	}
 
@@ -17,23 +17,31 @@
 		$query = $connection->query("CREATE DATABASE $database");
 //output a message if database is created
 		if($query)  {
-			echo "Successfully created a database: " . $database;
+			echo "<p>Successfully created a database: " . $database . "</p>";
 		}
 	}
 //exicute if database already exist
 	else {
-		echo "Database already exists";
+		echo "<p>Database already exists</p>";
 	}
 
 //Creates a table for blog post
 $query = $connection->query("CREATE TABLE posts ("
 //increment the id of the post
- . "id int(11) NUT NULL AUTO_INCREMENT,"
+ . "id int(11) NOT NULL AUTO_INCREMENT, "
 //title of the psot
- . "title varchar(255) NOT NULL,"
+ . "title varchar(255) NOT NULL, "
 // wont let id and title be empty
- . "post text NOT NULL,"
+ . "post text NOT NULL, "
 //will be used to hook the posts together later
  . "PRIMARY KEY (id))");
+
+//check if our table was succesfully created
+if ($query) {
+	echo "Succesfully created table: posts";
+}
+else {
+	echo "<p>$connection->error</p>";
+}
 
 	$connection->close();
