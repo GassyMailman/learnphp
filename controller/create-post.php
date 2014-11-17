@@ -1,6 +1,6 @@
 <?php
 //location of database
-require_once(__DIR__ . "/../model/database.php");
+require_once(__DIR__ . "/../model/config.php");
 
 //opens connection
 $connection = new mysqli($host, $username, $password, $database);
