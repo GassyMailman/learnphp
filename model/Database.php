@@ -12,18 +12,20 @@ class Database {
 		$this->password = $password;
 		$this->database = $database;
 	}
-//calls connection so we dont have to repeet the code through out the pages.
+//a function is used to hold the repetitive code.
 	public function openConnection() {
 		$this->connection = new mysqli($this->host, $this->username, $this->password, $this->database);
 
-
-		if($connection->connect_error){
-			die("<p>Error: "  . $connection->connect_error . "</P>");
+//checked if we can establish a connection
+		if($this->connection->connect_error){
+			die("<p>Error: "  . $thsi->connection->connect_error . "</P>");
 		}
 	}
-
+//(isset)--Determine if a variable is set and is not NULL. 
 	public function closeConnection() {
-
+		if(isset($this->connection)) {
+			$this->connection->close();
+		}
 	}
 
 	public function query($string) {
