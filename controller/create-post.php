@@ -2,9 +2,6 @@
 //location of database
 require_once(__DIR__ . "/../model/config.php");
 
-//opens connection
-$connection = new mysqli($host, $username, $password, $database);
-
 //Stores title and Filters it so its harder to hack
 	$title = filter_input(INPUT_POST, "title", FILTER_SANITIZE_STRING);
 //Stores post and Filters it so its harder to hack	
@@ -18,8 +15,3 @@ if($query) {
 else {
 	echo "<p>$connection->error</p>";
 }
-
-
-
-//closes conection
-	$connection->close();

@@ -5,3 +5,5 @@
 	$username = "root";
 	$password = "root";
 	$database = "blog_db";	
+//allows you to accses the closeConnection and openConnection vars. in Database
+	$connection = new Database($host, $username, $password,,$database);
