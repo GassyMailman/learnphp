@@ -1,5 +1,5 @@
 body{
-	background-image: url(../images/iceburg.jpg);
+	background-image: url(../images/bridge.jpg);
   	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -9,9 +9,9 @@ body{
 	min-height: 100%
 	-webkit-text-size-adjust: none;
   	overflow-x: hidden;
-  	padding: 20px 0px 0px 20px;
+	text-align: center;
+	color: white;
 }
-
 
 @media screen and (max-width: 40em) {
 	body{
@@ -26,35 +26,19 @@ body{
 		}
 }
 
-#homemogul{
-	width: 360px;
-	height: 440px;
-	text-align: left;
-}
 
-#header{
-	float: left;
-	margin-top: -20px;
-	width: 600px;
+header{
+	margin: 10px;
+
 }
 
 .links{
-	float: right;
-	float: top;
-	width: 280px;
-}
-
-.link{
 	opacity: .5;
+	float: center;
+
 }
 
-.posts{
-	width: 665px;
-}
+#message{
+	margin-bottom: 10px;
 
-footer{
-	text-align: right;
-	padding: 5px;
-	color: white;
 }
-

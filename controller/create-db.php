@@ -1,45 +1,54 @@
 <?php
+	//connects this file to the config file
+	require_once(__DIR__ . "/../model/config.php"); 
+	// require_once(__DIR__ . "/../controller/login-verify.php");
+	// //runs if the user hasn't logged in
+	// if (!authenticateUser()) {
+	// 	//sends the user back to the home page
+	// 	header("Location: " . $path . "home.php");
+	// 	//eliminate the page from loading
+	// 	die();
+	// }
 
-	require_once(__DIR__ . "/../model/config.php");
+	$query = $_SESSION["connection"]->query("CREATE TABLE posts ("
+ 			//creates an id for each blogpost.  id cannot be null.  increments id integers
+			. "id int(11) NOT NULL AUTO_INCREMENT, "
+			//stores title of blogpost.  can have up to 255 characters.  must have a title
+			. "title varchar (255) NOT NULL, " 
+			//posts can't be empty
+			. "post text NOT NULL, " 
+			//inputs the date and time the post was submitted into the database
+			. "DateTime datetime NOT NULL ,"
+			//sets primary key for table.  the way tables are connected to each other
+			. "PRIMARY KEY (id))"); 
 
-	if($connection->connect_error){
-		die("<p>Error: "  . $connection->connect_error . "</P>");
-
+	//runs if the table is working
+	if($query){  
+   		//echo "<p>Succesfully create table: posts</p>";
+	}
+	//says if the table already exists or if there is an error
+	else{  
+		//echo " <p>" . $_SESSION["connection"]->error . "</p>";
 	}
 
-//selects this database and returns it true of not true
-	$exists = $connection->select_db($database);
+	//creating a table to store users' usernames, emails, and passwords in phpMyAdmin.  pretty much the same as previous table
+	$query = $_SESSION["connection"]->query("CREATE TABLE users ("
+		. "id int(11) NOT NULL AUTO_INCREMENT, "
+		. "username varchar(30) NOT NULL, "
+		. "email varchar(50) NOT NULL, "
+		. "password char(128) NOT NULL, "
+		. "salt char(128) NOT NULL, "
+		. "PRIMARY KEY (id))");
 
-//query that gets applide to our local server
-	if(!$exists) {
-		$query = $connection->query("CREATE DATABASE $database");
-//output a message if database is created
-		if($query)  {
-			echo "<p>Successfully created a database: " . $database . "</p>";
-		}
-	}
-//exicute if database already exist
-	else {
-		echo "<p>Database already exists</p>";
+	//lets me know that the users' database has been created
+	if($query){
+		//echo "<p> Successfully created table: users </p>";
 	}
 
-//Creates a table for blog post
-$query = $connection->query("CREATE TABLE posts ("
-//increment the id of the post
- . "id int(11) NOT NULL AUTO_INCREMENT, "
-//title of the psot
- . "title varchar(255) NOT NULL, "
-// wont let id and title be empty
- . "post text NOT NULL, "
-//will be used to hook the posts together later
- . "PRIMARY KEY (id))");
 
-//check if our table was succesfully created
-if ($query) {
-	echo "Succesfully created table: posts";
-}
-else {
-	echo "<p>$connection->error</p>";
-}
+	//if the database hasn't been created, this echoes out the error
+	else{
+		//echo "<p>" . $_SESSION["connection"]->error . "</p>";
+	}
 
-	$connection->close();
+	?>

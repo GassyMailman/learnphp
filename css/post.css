@@ -1,5 +1,5 @@
 body{
-	background-image: url(../images/iceburg.jpg);
+	background-image: url(../images/sheep.jpg);
   	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -9,9 +9,17 @@ body{
 	min-height: 100%
 	-webkit-text-size-adjust: none;
   	overflow-x: hidden;
-  	padding: 20px 0px 0px 20px;
+	text-align: center;
 }
 
+#post{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#title{
+	margin-top: 10px;
+}
 
 @media screen and (max-width: 40em) {
 	body{
@@ -26,35 +34,28 @@ body{
 		}
 }
 
-#homemogul{
-	width: 360px;
-	height: 440px;
-	text-align: left;
+
+.register{
+	text-align: center;
 }
 
-#header{
-	float: left;
-	margin-top: -20px;
-	width: 600px;
+#email{
+	width: 1324px;
+	margin-top: 10px;
 }
 
-.links{
-	float: right;
-	float: top;
-	width: 280px;
+#username{
+	width: 1290px;
+		margin-top: 10px;
+
 }
 
-.link{
-	opacity: .5;
+#password{
+	width: 1290px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
-.posts{
-	width: 665px;
+.headingbutton{
+	
 }
-
-footer{
-	text-align: right;
-	padding: 5px;
-	color: white;
-}
-
